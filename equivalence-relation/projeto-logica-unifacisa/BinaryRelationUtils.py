@@ -17,7 +17,12 @@ class BinaryRelationUtils(object):
         Return True if the binary relation in the given input set is reflexive
         or False if it is not.
         """
-        # TODO: Replace line below with actual code.
+        rho = binary_relation.relation(input_set)
+        for x in input_set:
+            if (x, x) not in rho:
+                return False
+
+        return True
         pass
 
     @staticmethod
@@ -33,8 +38,15 @@ class BinaryRelationUtils(object):
         Return True if the binary relation in the given input set is symmetric
         or False if it is not.
         """
-        # TODO: Replace line below with actual code.
+        rho = binary_relation.relation(input_set)
+        for x in input_set:
+            for y in input_set:
+                if (x,y) in rho and (y,x) in rho:
+                    return True
+        return False
         pass
+        
+        
 
     @staticmethod
     def verify_transitivity(binary_relation, input_set):
@@ -49,7 +61,17 @@ class BinaryRelationUtils(object):
         Return True if the binary relation in the given input set is transitive
         or False if it is not.
         """
-        # TODO: Replace line below with actual code.
+        rho = binary_relation.relation(input_set)
+
+        for x in input_set:
+            for y in input_set:
+                for outro in input_set:
+                    if (x, outro) in rho and (y, outro) in rho and (x, outro) not in rho:
+                        return False
+                    else:
+                         return True
+
+       
         pass
 
     @staticmethod
@@ -65,8 +87,18 @@ class BinaryRelationUtils(object):
         Return True if the binary relation in the given input set is 
         antisymmetric or False if it is not.
         """
-        # TODO: Replace line below with actual code.
+        rho = binary_relation.relation(input_set)
+
+        for x, y in rho:
+            if (y, x) in rho and x != y:
+                return False
+            
+        return True
+
+        
         pass
+
+        
 
     @staticmethod
     def verify_equivalency(binary_relation, input_set):
@@ -81,9 +113,8 @@ class BinaryRelationUtils(object):
         Return True if the binary relation in the given input set is 
         an equivalence relation or False if it is not.
         """
-        # TODO: Replace line below with actual code.
+        return BinaryRelationUtils.verify_symmetry(binary_relation, input_set) and BinaryRelationUtils.verify_reflexivity(binary_relation, input_set) and BinaryRelationUtils.verify_transitivity(binary_relation, input_set)
         pass
-
     @staticmethod
     def get_partitioning(binary_relation, input_set):
         """
@@ -97,6 +128,9 @@ class BinaryRelationUtils(object):
         input_set - A set closed under the binary relation.
 
         Return None if the binary relation is not an equivalence relation or a partitioning of the input set (e.g.: [{1, 3, 5, ...}, {2, 4, 6, ...}]) if it is an equivalence relation.
+        return_list = []
         """
-        # TODO: Replace line below with actual code.
-        return []
+
+        pass
+        
+      

@@ -18,9 +18,16 @@ class SameParityBinaryRelation(BinaryRelation):
 
         Return True if the ordered pair belongs to the binary relation, otherwise, return False.
         """
-        pass
+        if x % 2 == 0 and y % 2 == 0:
+            return True
+        elif x % 2 != 0 and y % 2 !=0:
+            return True
+        else:
+            return False
+            
 
     def relation(self, S):
+        
         """
         This method returns a set of pairs in SxS (a.k.a. S²) that belong to the binary relation.
 
@@ -29,4 +36,14 @@ class SameParityBinaryRelation(BinaryRelation):
 
         Return a set of pairs in SxS (a.k.a. S²) that belong to the binary relation.
         """
-        pass
+        
+        
+        SS = set([(x,y) for x in S for y in S])
+        final = set()
+        for par in SS:
+            if self.contains_ordered_pair(par[0],par[1]):
+                final.add(par)
+        return final
+        
+       
+            
